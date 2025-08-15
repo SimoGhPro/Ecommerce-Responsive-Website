@@ -82,24 +82,6 @@ export default async function CategorySection() {
                   <span className="text-sm font-medium text-center block">{parent.name}</span>
                 </div>
               </div>
-              
-              <div className="space-y-1 text-center">
-                {groupedCategories[parent._id]?.children.slice(0, 3).map((child) => (
-                  <div
-                    key={child._id}
-                    className="text-xs text-gray-600 hover:text-primary-600 block"
-                  >
-                    {child.name}
-                  </div>
-                ))}
-                {groupedCategories[parent._id]?.children.length > 3 && (
-                  <div
-                    className="text-xs text-primary-600 hover:underline block"
-                  >
-                    + {groupedCategories[parent._id].children.length - 3} more
-                  </div>
-                )}
-              </div>
             </div>
           )
         ))}

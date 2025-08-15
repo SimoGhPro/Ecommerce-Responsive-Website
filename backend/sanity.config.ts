@@ -1,5 +1,5 @@
 import {defineConfig} from 'sanity'
-import {schemaTypes} from './schemaTypes'
+import {schemaTypes} from './data/types'
 
 
 import {structureTool} from 'sanity/structure'

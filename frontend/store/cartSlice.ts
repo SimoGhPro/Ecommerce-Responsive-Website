@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Product } from '../../backend/sanity.types';
+import { Product } from '../../backend/data/model/modelTypes';
 
 interface CartItem extends Omit<Product, '_type' | '_createdAt' | '_updatedAt' | '_rev'> {
   quantity: number;

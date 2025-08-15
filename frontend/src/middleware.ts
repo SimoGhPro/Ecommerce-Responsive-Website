@@ -11,7 +11,7 @@ export default clerkMiddleware(async (auth, req) => {
   
   if (req.nextUrl.pathname === '/') {
     // Redirect to /en
-    return NextResponse.redirect(new URL('/en', req.url))
+    return NextResponse.redirect(new URL('/home', req.url))
   }
   
   if (protectedRoutes(req)) { auth.protect(); }
