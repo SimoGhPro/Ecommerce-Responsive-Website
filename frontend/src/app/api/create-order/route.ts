@@ -51,7 +51,7 @@ export async function POST(request: Request) {
     // 3. Send confirmation email with Resend
     try {
       const { data, error } = await resend.emails.send({
-        from: 'Acme <onboarding@resend.dev>', // Replace with your domain
+        from: 'onboarding@resend.dev', // Replace with your domain
         to: [order.user.email],
         subject: `Order Confirmation #${createdOrder.orderNumber}`,
         react: OrderConfirmationEmail({ order, cartItems }),
