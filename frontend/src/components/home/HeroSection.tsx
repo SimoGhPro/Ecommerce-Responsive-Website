@@ -2,6 +2,7 @@ import { client } from "@/sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { SanityDocument } from "next-sanity";
+import HeroSectionClient from "./HeroSectionClient";
 
 // Image URL builder
 const { projectId, dataset } = client.config();
@@ -23,57 +24,12 @@ export default async function HeroSection() {
 
   if (!banners.length) return null;
 
-  return (
-    <section className="relative h-[80vh] max-h-[800px] w-full overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        {banners.map((banner, index) => {
-          const imageUrl = banner.image
-            ? urlFor(banner.image)?.auto('format').url()
-            : null;
+  // Prepare image URLs on server
+  const bannerData = banners.map(banner => ({
+    ...banner,
+    imageUrl: banner.image ? urlFor(banner.image)?.width(2000).height(1000).url() : null,
+    thumbUrl: banner.image ? urlFor(banner.image)?.width(100).height(60).url() : null
+  }));
 
-          return (
-            <div
-              key={banner._id}
-              className={`absolute inset-0 transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
-              data-banner
-              style={{
-                backgroundImage: imageUrl ? `url(${imageUrl})` : 'none',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                willChange: 'opacity'
-              }}
-              aria-hidden={index !== 0}
-              aria-label={banner.image?.alt || 'Promotional banner'}
-            />
-          );
-        })}
-      </div>
-
-      {/* Animation script (client-side) */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            let currentIndex = 0;
-            const banners = document.querySelectorAll('[data-banner]');
-            const interval = 6000;
-            
-            function rotateBanners() {
-              banners[currentIndex].classList.remove('opacity-100');
-              banners[currentIndex].classList.add('opacity-0');
-              
-              currentIndex = (currentIndex + 1) % banners.length;
-              
-              banners[currentIndex].classList.remove('opacity-0');
-              banners[currentIndex].classList.add('opacity-100');
-            }
-            
-            if (banners.length > 1) {
-              setInterval(rotateBanners, interval);
-            }
-          `,
-        }}
-      />
-    </section>
-  );
+  return <HeroSectionClient banners={bannerData} />;
 }

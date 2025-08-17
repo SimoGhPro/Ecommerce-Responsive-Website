@@ -1,4 +1,3 @@
-
 // app/page.tsx
 // import CountdownTimer from '@/components/home/CountdownTimer';
 import BrandSection from '@/components/home/BrandSection';

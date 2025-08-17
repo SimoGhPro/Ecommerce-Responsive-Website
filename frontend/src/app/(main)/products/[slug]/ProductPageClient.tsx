@@ -14,7 +14,7 @@ import {
 import { client } from '@/sanity/client';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addItemToCart } from '../../../../../../store/cartSlice';
+import { addItemToCart } from '../../../../../store/cartSlice';
 
 
 const { projectId, dataset } = client.config();

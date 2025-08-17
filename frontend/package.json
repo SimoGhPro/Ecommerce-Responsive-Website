@@ -12,6 +12,7 @@
     "@clerk/nextjs": "^6.29.0",
     "@formatjs/intl-datetimeformat": "^6.18.0",
     "@formatjs/intl-numberformat": "^8.15.4",
+    "@getbrevo/brevo": "^3.0.1",
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^5.2.1",
     "@portabletext/react": "^3.2.1",

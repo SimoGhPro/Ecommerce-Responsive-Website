@@ -55,14 +55,11 @@ export type Order = {
     endUserAddress?: string
     endUserCity?: string
     endUserPostalCode?: string
-    endUserCountry?: string
     endUserPhoneNumber?: string
   }
   stockVerification?: 0 | 1
-  referenceNo?: string
   requestedDeliveryDate?: string
   deliveryMethod?: string
-  shopAccountEmail?: string
   comments?: string
   items?: Array<{
     product?: {
@@ -77,6 +74,8 @@ export type Order = {
   }>
   clerkUserId?: string
   status?: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled'
+  totalAmount?: number
+  currency?: 'MAD' | 'EUR' | 'USD'
 }
 
 export type Product = {

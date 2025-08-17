@@ -238,13 +238,6 @@
               },
               "optional": true
             },
-            "endUserCountry": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            },
             "endUserPhoneNumber": {
               "type": "objectAttribute",
               "value": {
@@ -273,13 +266,6 @@
         },
         "optional": true
       },
-      "referenceNo": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        },
-        "optional": true
-      },
       "requestedDeliveryDate": {
         "type": "objectAttribute",
         "value": {
@@ -288,13 +274,6 @@
         "optional": true
       },
       "deliveryMethod": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        },
-        "optional": true
-      },
-      "shopAccountEmail": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
@@ -406,6 +385,34 @@
             {
               "type": "string",
               "value": "cancelled"
+            }
+          ]
+        },
+        "optional": true
+      },
+      "totalAmount": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
+      },
+      "currency": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "MAD"
+            },
+            {
+              "type": "string",
+              "value": "EUR"
+            },
+            {
+              "type": "string",
+              "value": "USD"
             }
           ]
         },

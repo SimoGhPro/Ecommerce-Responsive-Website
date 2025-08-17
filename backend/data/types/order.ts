@@ -56,12 +56,6 @@ export default defineType({
           validation: (Rule) => Rule.regex(/^[A-Za-z0-9]+$/, { name: 'alphanumeric only' }),
         }),
         defineField({
-          name: 'endUserCountry',
-          title: 'Country',
-          type: 'string',
-          validation: (Rule) => Rule.regex(/^[A-Za-z\s]+$/, { name: 'letters only' }),
-        }),
-        defineField({
           name: 'endUserPhoneNumber',
           title: 'Phone Number',
           type: 'string',
@@ -82,11 +76,6 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'referenceNo',
-      title: 'Reference Number',
-      type: 'string',
-    }),
-    defineField({
       name: 'requestedDeliveryDate',
       title: 'Requested Delivery Date',
       type: 'date',
@@ -95,12 +84,6 @@ export default defineType({
       name: 'deliveryMethod',
       title: 'Delivery Method',
       type: 'string',
-    }),
-    defineField({
-      name: 'shopAccountEmail',
-      title: 'Shop Account Email',
-      type: 'string',
-      validation: (Rule) => Rule.email(),
     }),
     defineField({
       name: 'comments',
@@ -179,6 +162,26 @@ export default defineType({
       },
       initialValue: 'pending',
     }),
+    defineField({
+      name: 'totalAmount',
+      title: 'Total Amount',
+      type: 'number',
+      description: 'The total amount for the order including taxes',
+      }),
+      defineField({
+        name: 'currency',
+        title: 'Currency',
+        type: 'string',
+        options: {
+          list: [
+            {title: 'MAD', value: 'MAD'},
+            {title: 'EUR', value: 'EUR'},
+            {title: 'USD', value: 'USD'},
+            // Add other currencies as needed
+          ],
+        },
+        initialValue: 'MAD',
+      })
   ],
   preview: {
     select: {
