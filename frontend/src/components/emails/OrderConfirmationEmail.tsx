@@ -1,44 +1,43 @@
+// components/emails/OrderConfirmationEmail.tsx
 export function OrderConfirmationEmail({ order, cartItems }: { order: any, cartItems: any[] }) {
-    return (
-      <div>
-        <h1>Thank you for your order</h1>
-        <p>Your order #{order.orderNumber} has been received and is being processed.</p>
-        
-        <h2>Order Summary</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Quantity</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cartItems.map((item) => (
-              <tr key={item._id}>
-                <td>{item.name}</td>
-                <td>{item.quantity}</td>
-                <td>{((item.discountPrice || item.price) * item.quantity).toFixed(2)} {order.currency}</td>
-              </tr>
-            ))}
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colSpan={2}>Total</td>
-              <td>{order.totalAmount.toFixed(2)} {order.currency}</td>
-            </tr>
-          </tfoot>
-        </table>
-        
-        <h2>Shipping Information</h2>
-        <p>
-          {order.user.firstName} {order.user.lastName}<br />
-          {order.user.endUserAddress}<br />
-          {order.user.endUserCity}, {order.user.endUserPostalCode}<br />
-          Phone: {order.user.endUserPhoneNumber}
-        </p>
-        
-        <p>We'll notify you when your order ships. If you have any questions, please contact our support team.</p>
-      </div>
-    );
-  }
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Order Confirmation</title>
+        <style>
+          body { font-family: Arial, sans-serif; line-height: 1.6; }
+          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+          .header { background-color: #f8f9fa; padding: 20px; text-align: center; }
+          .order-details { margin: 20px 0; }
+          .item { display: flex; margin-bottom: 10px; }
+          .total { font-weight: bold; margin-top: 20px; }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1>Order Confirmation #${order.orderNumber}</h1>
+          </div>
+          
+          <div class="order-details">
+            <h2>Thank you for your order!</h2>
+            <p>We've received your order and will process it shortly.</p>
+            
+            <h3>Order Summary</h3>
+            ${cartItems.map(item => `
+              <div class="item">
+                <div>${item.quantity} x ${item.name}</div>
+                <div>${(item.discountPrice || item.price).toFixed(2)} MAD</div>
+              </div>
+            `).join('')}
+            
+            <div class="total">
+              Total: ${order.totalAmount.toFixed(2)} MAD
+            </div>
+          </div>
+        </div>
+      </body>
+    </html>
+  `;
+}
