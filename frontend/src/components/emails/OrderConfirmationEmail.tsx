@@ -1,4 +1,3 @@
-// components/emails/OrderConfirmationEmail.tsx
 export function OrderConfirmationEmail({ order, cartItems }: { order: any, cartItems: any[] }) {
   return `
     <!DOCTYPE html>
@@ -23,18 +22,23 @@ export function OrderConfirmationEmail({ order, cartItems }: { order: any, cartI
           <div class="order-details">
             <h2>Thank you for your order!</h2>
             <p>We've received your order and will process it shortly.</p>
+            <p>You'll find your order details attached as a PDF document.</p>
             
             <h3>Order Summary</h3>
             ${cartItems.map(item => `
               <div class="item">
                 <div>${item.quantity} x ${item.name}</div>
-                <div>${(item.discountPrice || item.price).toFixed(2)} MAD</div>
+                <div>${((item.discountPrice || item.price) * item.quantity).toFixed(2)} MAD</div>
               </div>
             `).join('')}
             
             <div class="total">
               Total: ${order.totalAmount.toFixed(2)} MAD
             </div>
+          </div>
+          
+          <div class="footer">
+            <p>If you have any questions, please contact our customer support.</p>
           </div>
         </div>
       </body>

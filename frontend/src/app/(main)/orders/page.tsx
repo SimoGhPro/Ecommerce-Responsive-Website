@@ -22,7 +22,6 @@ export default function OrdersPage() {
   const { user, isLoaded } = useUser();
   const router = useRouter();
   const [orders, setOrders] = useState<Order[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (isLoaded && !user) {
@@ -49,15 +48,9 @@ export default function OrdersPage() {
       setOrders(orders);
     } catch (error) {
       console.error("Failed to fetch orders:", error);
-    } finally {
-      setLoading(false);
     }
   };
-  
 
-  if (!isLoaded || loading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">

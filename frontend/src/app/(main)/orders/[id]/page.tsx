@@ -106,10 +106,6 @@ export default function OrderDetailPage({ params }: { params: { id: string } }) 
     }
   };
 
-  if (!isLoaded || loading) {
-    return <div>Loading...</div>;
-  }
-
   if (!order) {
     return <div>Order not found</div>;
   }
