@@ -11,13 +11,13 @@ import { dashboardTool } from './pages/dashboard'
 
 export default defineConfig({
   name: 'default',
-  title: 'ecommerce_data',
+  title: 'ecommercejolof_data',
 
   projectId: '8yq0hl58',
   dataset: 'jolof_data',
 
   plugins: [
-    dashboardTool(),
+    dashboardTool(), 
     structureTool(), 
     visionTool(),
   ],

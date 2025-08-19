@@ -43,14 +43,14 @@ export default function HeroSectionClient({ banners }: { banners: Banner[] }) {
       });
 
       indicators.forEach((indicator, i) => {
-        indicator.classList.toggle('bg-white', i === index);
+        indicator.classList.toggle('bg-primary-600', i === index);
         indicator.classList.toggle('w-6', i === index);
-        indicator.classList.toggle('bg-white/50', i !== index);
+        indicator.classList.toggle('bg-gray-300', i !== index);
       });
 
       thumbs.forEach((thumb, i) => {
         thumb.classList.toggle('ring-2', i === index);
-        thumb.classList.toggle('ring-white', i === index);
+        thumb.classList.toggle('ring-primary-600', i === index);
         thumb.classList.toggle('opacity-70', i !== index);
       });
 
@@ -101,93 +101,98 @@ export default function HeroSectionClient({ banners }: { banners: Banner[] }) {
   if (!banners.length) return null;
 
   return (
-    <section className="relative h-[80vh] max-h-[800px] w-full overflow-hidden" ref={carouselRef}>
-      {/* Slides */}
-      <div className="relative w-full h-full">
-        {banners.map((banner, index) => (
-          <div
-            key={banner._id}
-            data-slide
-            className={`absolute inset-0 transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
-          >
-            {banner.imageUrl && (
-              <img
-                src={banner.imageUrl}
-                alt={banner.alt || 'Promotional banner'}
-                className="w-full h-full object-cover"
-                loading={index === 0 ? 'eager' : 'lazy'}
-              />
-            )}
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-primary-50">
+      <div className="max-w-7xl mx-auto">
+        {/* Hero Carousel */}
+        <div className="relative h-[60vh] max-h-[600px] w-full overflow-hidden rounded-xl shadow-lg" ref={carouselRef}>
+          {/* Slides */}
+          <div className="relative w-full h-full">
+            {banners.map((banner, index) => (
+              <div
+                key={banner._id}
+                data-slide
+                className={`absolute inset-0 transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+              >
+                {banner.imageUrl && (
+                  <img
+                    src={banner.imageUrl}
+                    alt={banner.alt || 'Promotional banner'}
+                    className="w-full h-full object-cover"
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                  />
+                )}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      {/* Navigation buttons */}
-      {banners.length > 1 && (
-        <>
-          <button
-            data-prev
-            className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white hover:bg-black/50"
-            aria-label="Previous banner"
-          >
-            <ChevronLeftIcon className="h-6 w-6" />
-          </button>
-          <button
-            data-next
-            className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white hover:bg-black/50"
-            aria-label="Next banner"
-          >
-            <ChevronRightIcon className="h-6 w-6" />
-          </button>
-        </>
-      )}
+          {/* Navigation buttons */}
+          {banners.length > 1 && (
+            <>
+              <button
+                data-prev
+                className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-2 text-gray-800 hover:bg-white shadow-md hover:shadow-lg transition-all"
+                aria-label="Previous banner"
+              >
+                <ChevronLeftIcon className="h-6 w-6" />
+              </button>
+              <button
+                data-next
+                className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-2 text-gray-800 hover:bg-white shadow-md hover:shadow-lg transition-all"
+                aria-label="Next banner"
+              >
+                <ChevronRightIcon className="h-6 w-6" />
+              </button>
+            </>
+          )}
 
-      {/* Indicator dots */}
-      {banners.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 space-x-2">
-          {banners.map((_, index) => (
-            <button
-              key={index}
-              data-indicator
-              className={`h-3 w-3 rounded-full transition-all ${index === 0 ? 'bg-white w-6' : 'bg-white/50'}`}
-              aria-label={`Go to slide ${index + 1}`}
-              onClick={() => {
-                const event = new Event('click');
-                document.dispatchEvent(event);
-                currentIndexRef.current = index;
-              }}
-            />
-          ))}
-        </div>
-      )}
-
-      {/* Thumbnail previews */}
-      {banners.length > 1 && (
-        <div className="absolute bottom-20 left-1/2 z-10 flex -translate-x-1/2 space-x-2 p-2 bg-black/30 rounded-lg">
-          {banners.map((banner, index) => (
-            <button
-              key={`thumb-${banner._id}`}
-              data-thumb
-              className={`w-16 h-10 rounded-md overflow-hidden transition-all ${index === 0 ? 'ring-2 ring-white' : 'opacity-70'}`}
-              aria-label={`View banner ${index + 1}`}
-              onClick={() => {
-                const event = new Event('click');
-                document.dispatchEvent(event);
-                currentIndexRef.current = index;
-              }}
-            >
-              {banner.thumbUrl && (
-                <img
-                  src={banner.thumbUrl}
-                  alt={banner.alt || ''}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
+          {/* Indicator dots */}
+          {banners.length > 1 && (
+            <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 space-x-2">
+              {banners.map((_, index) => (
+                <button
+                  key={index}
+                  data-indicator
+                  className={`h-3 rounded-full transition-all ${index === 0 ? 'bg-primary-600 w-6' : 'bg-gray-300 w-3'}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                  onClick={() => {
+                    const event = new Event('click');
+                    document.dispatchEvent(event);
+                    currentIndexRef.current = index;
+                  }}
                 />
-              )}
-            </button>
-          ))}
+              ))}
+            </div>
+          )}
+
+          {/* Thumbnail previews */}
+          {banners.length > 1 && (
+  <div className="absolute bottom-20 left-1/2 z-10 flex -translate-x-1/2 space-x-2 p-2 bg-white/80 rounded-lg shadow-md">
+    {banners.map((banner, index) => (
+      <button
+        key={`thumb-${banner._id}`}
+        data-thumb
+        className={`w-16 h-10 rounded-md overflow-hidden transition-all ${index === 0 ? 'ring-2 ring-primary-600' : 'opacity-70'}, hover:opacity-100`}
+        aria-label={`View banner ${index + 1}`}
+        onClick={() => {
+          const event = new Event('click');
+          document.dispatchEvent(event);
+          currentIndexRef.current = index;
+        }}
+      >
+        {banner.thumbUrl && (
+          <img
+            src={banner.thumbUrl}
+            alt={banner.alt || ''}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+        )}
+      </button>
+    ))}
+  </div>
+)}
         </div>
-      )}
+      </div>
     </section>
   );
 }

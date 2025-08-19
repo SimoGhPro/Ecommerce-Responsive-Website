@@ -168,6 +168,18 @@ export type Category = {
   Id?: string
   name?: string
   slug?: Slug
+  image?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    media?: unknown
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
   parentCategory?: {
     _ref: string
     _type: 'reference'

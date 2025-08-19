@@ -27,6 +27,15 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+        metadata: ['lqip', 'palette']
+      },
+    }),
+    defineField({
       name: 'parentCategory',
       title: 'Parent Category',
       type: 'reference',

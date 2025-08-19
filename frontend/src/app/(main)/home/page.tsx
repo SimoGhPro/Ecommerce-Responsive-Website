@@ -1,16 +1,17 @@
 // app/page.tsx
-// import CountdownTimer from '@/components/home/CountdownTimer';
 import BrandSection from '@/components/home/BrandSection';
 import CategorySection from '@/components/home/CategorySection';
 import ProductsSection from '@/components/home/ProductsSection';
 import React from 'react';
 import HeroSection from '@/components/home/HeroSection';
-export default function Home() {
 
+
+export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      
+      <div>
+      </div>
       {/* Hero Section */}
       <HeroSection />
 
