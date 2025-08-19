@@ -4,11 +4,11 @@ import axios, { AxiosResponse } from 'axios';
 
 // Configuration - contained within this file only
 const LOGICOM_CREDENTIALS = {
-    ConsumerKey: process.env.SANITY_STUDIO_LOGICOM_CONSUMER_KEY,
-    ConsumerSecret: process.env.SANITY_STUDIO_LOGICOM_CONSUMER_SECRET,
-    AccessTokenKey: process.env.SANITY_STUDIO_LOGICOM_ACCESS_TOKEN_KEY,
-    CustomerID: process.env.SANITY_STUDIO_LOGICOM_CUSTOMER_ID,          
-    baseUrl: process.env.LOGICOM_API_URL // Stagging URL
+    ConsumerKey: 'WsaSVtgbU7AbToQn4f3jJClKDtBh1A',
+    ConsumerSecret: 'GulhTn041lmr399KRXvBz4qUjdwiAM',
+    AccessTokenKey: 'Lr1NMqsqJXEmK3MqPu4LnpswuKL4td5u',
+    CustomerID: '2113',          
+    baseUrl: 'https://dev-quickconnect.logicompartners.com/api' // Stagging URL
 };
 
 interface LogicomResponse {
