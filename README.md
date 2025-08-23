@@ -2,22 +2,33 @@
 
 *Transform Shopping Into Seamless, Engaging Experiences*
 
-![Project Banner](https://via.placeholder.com/800x300/3B82F6/FFFFFF?text=Ecommerce+Responsive+Website+with+Next.js+%2B+Sanity)
+
 
 ![last-commit](https://img.shields.io/badge/last_commit-3_days_ago-green)
 ![repo-top-language](https://img.shields.io/badge/top%20language-TypeScript-blue)
 ![repo-language-count](https://img.shields.io/badge/languages-15-orange)
-![Next.js](https://img.shields.io/badge/Next.js-15.3.5-black?style=flat&logo=next.js&logoColor=white)
-![Sanity](https://img.shields.io/badge/Sanity-CMS-orange?style=flat&logo=sanity&logoColor=white)
 
-*Built with the modern tech stack:*
+*Built with the tools and technologies:*
 
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white)
+![JSON](https://img.shields.io/badge/JSON-000000?style=flat&logo=json&logoColor=white)
+![Markdown](https://img.shields.io/badge/Markdown-000000?style=flat&logo=markdown&logoColor=white)
+![npm](https://img.shields.io/badge/npm-CB3837?style=flat&logo=npm&logoColor=white)
+![Autoprefixer](https://img.shields.io/badge/Autoprefixer-DD3735?style=flat&logo=autoprefixer&logoColor=white)
 ![Sanity](https://img.shields.io/badge/Sanity-F03E2F?style=flat&logo=sanity&logoColor=white)
+![PostCSS](https://img.shields.io/badge/PostCSS-DD3A0A?style=flat&logo=postcss&logoColor=white)
+![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=flat&logo=prettier&logoColor=black)
+![.ENV](https://img.shields.io/badge/.ENV-ECD53F?style=flat&logo=dotenv&logoColor=black)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![Puppeteer](https://img.shields.io/badge/Puppeteer-40B5A4?style=flat&logo=puppeteer&logoColor=white)
+![React Bootstrap](https://img.shields.io/badge/React%20Bootstrap-41E0FD?style=flat&logo=bootstrap&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-38B2AC?style=flat&logo=tailwind-css&logoColor=white)
-![Clerk](https://img.shields.io/badge/Clerk-Auth-8C5FF6?style=flat&logo=clerk&logoColor=white)
-![shadcn/ui](https://img.shields.io/badge/shadcn/ui-Component_Library-22C55E?style=flat)
+![Zod](https://img.shields.io/badge/Zod-3E67B1?style=flat&logo=zod&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat&logo=eslint&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=flat&logo=axios&logoColor=white)
+![datefns](https://img.shields.io/badge/datefns-770C56?style=flat&logo=date-fns&logoColor=white)
+![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-EC5990?style=flat&logo=reacthookform&logoColor=white)
+![styledcomponents](https://img.shields.io/badge/styledcomponents-DB7093?style=flat&logo=styled-components&logoColor=white)
 
 <br>
 <hr>
